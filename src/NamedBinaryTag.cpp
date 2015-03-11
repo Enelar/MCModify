@@ -1,4 +1,4 @@
-#include "NamedBinaryTag.hpp"
+#include "../include/NamedBinaryTag.hpp"
 
 namespace NBT
 {
@@ -19,58 +19,58 @@ namespace NBT
 	{
 		{ Byte::ID, [](Name_t const &name, std::istream &is) -> std::unique_ptr<Tag>
 			{
-				return std::unique_ptr<Tag>(new Byte(name, is));
+				return std::unique_ptr<Tag>(new Tag::Byte(name, is));
 			}
 		},
 		{ Short::ID, [](Name_t const &name, std::istream &is) -> std::unique_ptr<Tag>
 			{
-				return std::unique_ptr<Tag>(new Short(name, is));
+				return std::unique_ptr<Tag>(new Tag::Short(name, is));
 			}
 		},
 		{ Int::ID, [](Name_t const &name, std::istream &is) -> std::unique_ptr<Tag>
 			{
-				return std::unique_ptr<Tag>(new Int(name, is));
+				return std::unique_ptr<Tag>(new Tag::Int(name, is));
 			}
 		},
 		{ Long::ID, [](Name_t const &name, std::istream &is) -> std::unique_ptr<Tag>
 			{
-				return std::unique_ptr<Tag>(new Long(name, is));
+				return std::unique_ptr<Tag>(new Tag::Long(name, is));
 			}
 		},
 		{ Float::ID, [](Name_t const &name, std::istream &is) -> std::unique_ptr<Tag>
 			{
-				return std::unique_ptr<Tag>(new Float(name, is));
+				return std::unique_ptr<Tag>(new Tag::Float(name, is));
 			}
 		},
 		{ Double::ID, [](Name_t const &name, std::istream &is) -> std::unique_ptr<Tag>
 			{
-				return std::unique_ptr<Tag>(new Double(name, is));
+				return std::unique_ptr<Tag>(new Tag::Double(name, is));
 			}
 		},
 		{ ByteArray::ID, [](Name_t const &name, std::istream &is) -> std::unique_ptr<Tag>
 			{
-				return std::unique_ptr<Tag>(new ByteArray(name, is));
+				return std::unique_ptr<Tag>(new Tag::ByteArray(name, is));
 			}
 		},
 		{ String::ID, [](Name_t const &name, std::istream &is) -> std::unique_ptr<Tag>
 			{
-				return std::unique_ptr<Tag>(new String(name, is));
+				return std::unique_ptr<Tag>(new Tag::String(name, is));
 			}
 		},
 		{ List::ID, [](Name_t const &name, std::istream &is) -> std::unique_ptr<Tag>
 			{
-				ID_t type {Byte(u8"", is).v};
-				return std::unique_ptr<Tag>(new List(name, type, is));
+				Tag::ID_t type { Tag::Byte(u8"", is).v};
+				return std::unique_ptr<Tag>(new Tag::List(name, type, is));
 			}
 		},
 		{ Compound::ID, [](Name_t const &name, std::istream &is) -> std::unique_ptr<Tag>
 			{
-				return std::unique_ptr<Tag>(new Compound(name, is));
+				return std::unique_ptr<Tag>(new Tag::Compound(name, is));
 			}
 		},
 		{ IntArray::ID, [](Name_t const &name, std::istream &is) -> std::unique_ptr<Tag>
 			{
-				return std::unique_ptr<Tag>(new IntArray(name, is));
+				return std::unique_ptr<Tag>(new Tag::IntArray(name, is));
 			}
 		}
 	};

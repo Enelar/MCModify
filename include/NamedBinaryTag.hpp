@@ -21,7 +21,7 @@ namespace NBT
 		Name_t const name;
 		using ID_t = std::int8_t;
 
-		Tag() = default;
+		Tag() {};
 		Tag(Name_t const &name)
 		: name(name)
 		{
